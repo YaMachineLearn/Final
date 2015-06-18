@@ -1,0 +1,14 @@
+OUTPUT_PHONE_DIR=$OUTPUT_PATH/local/dict
+
+MAP_FILE=$DATA_ROOT_PATH/conf/phones.60-48-39.map
+TIMIT_DICT_FILE=$DATA_ROOT_PATH/conf/timitdic.txt
+OUTPUT_SIL_FILE=$OUTPUT_PHONE_DIR/silence_phones.txt
+OUTPUT_NONSIL_FILE=$OUTPUT_PHONE_DIR/nonsilence_phones.txt
+OUTPUT_LEXICON_FILE=$OUTPUT_PHONE_DIR/lexicon.txt 
+
+if [ ! -d "$OUTPUT_PHONE_DIR" ]; then
+    echo "  Making directory $OUTPUT_PHONE_DIR..."
+    mkdir -pv $OUTPUT_PHONE_DIR
+fi
+
+python prepPhones.py $MAP_FILE $TIMIT_DICT_FILE $OUTPUT_SIL_FILE $OUTPUT_NONSIL_FILE $OUTPUT_LEXICON_FILE
