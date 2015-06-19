@@ -12,7 +12,7 @@ cat $DATA_ROOT_PATH/sentence/train.set \
 > $OUTPUT_PATH/train/utt2spk
 
 cat $DATA_ROOT_PATH/sentence/train.set \
-| sed "s/\(.\)\([^_]*\).*/\2 \1/g" \
+| sed "s/\(.\)\([^_]*\).*/\1\2 \1/g" \
 | uniq \
 > $OUTPUT_PATH/train/spk2gender
 
